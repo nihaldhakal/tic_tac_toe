@@ -10,7 +10,6 @@ function getWinner() {
     var box8=  $("#box8");
     var box9=  $("#box9");
 
-
     if      (box1.innerHTML!== "" && box1.innerHTML===box2.innerHTML && box1.innerHTML===box3.innerHTML)
         console.log("You win");
     else if (box4.innerHTML!== "" && box4.innerHTML===box5.innerHTML && box4.innerHTML===box6.innerHTML)
@@ -26,7 +25,7 @@ function getWinner() {
     else if (box1.innerHTML!== "" && box1.innerHTML===box5.innerHTML && box1.innerHTML===box9.innerHTML)
         console.log("You win");
     else    (box3.innerHTML!== "" && box3.innerHTML===box5.innerHTML && box3.innerHTML===box7.innerHTML)
-        console.log("You win");
+    console.log("You win");
 
 }
 
@@ -34,20 +33,15 @@ $(document).ready(function() {
     var move = 2;
     var play = true;
 
-    $("#main").click(function() {
+    $(".box").click(function() {
+        console.log("click");
+
         if ($(this).text()=="" && play )
         {
-            if ((move%2)==1)
-            {
-                $(this).append("X");
-                console.log("sucessful");
-
-            }
-            else
-                {
-                    $(this).append("O");
-                }
+            // move % 2 == 1 ? $(this).append("X") : $(this).append("O");
+            $(this).append( move % 2 ==1 ? "X" : "O");
             move++;
+
             if (getWinner() != "")
             {
                 if (getWinner() == "X")
