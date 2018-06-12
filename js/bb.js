@@ -1,16 +1,17 @@
-/*function getWinner() {
-    var box1= document.getElementById("box1");
-    var box2= document.getElementById("box2");
-    var box3= document.getElementById("box3");
-    var box4= document.getElementById("box4");
-    var box5= document.getElementById("box5");
-    var box6= document.getElementById("box6");
-    var box7= document.getElementById("box7");
-    var box8= document.getElementById("box8");
-    var box9= document.getElementById("box9");
+function getWinner() {
+
+    var box1 = $("#box1");
+    var box2 = $("#box2");
+    var box3=  $("#box3");
+    var box4=  $("#box4");
+    var box5=  $("#box5");
+    var box6=  $("#box6");
+    var box7=  $("#box7");
+    var box8=  $("#box8");
+    var box9=  $("#box9");
 
 
-    if (box1.innerHTML!== "" && box1.innerHTML===box2.innerHTML && box1.innerHTML===box3.innerHTML)
+    if      (box1.innerHTML!== "" && box1.innerHTML===box2.innerHTML && box1.innerHTML===box3.innerHTML)
         console.log("You win");
     else if (box4.innerHTML!== "" && box4.innerHTML===box5.innerHTML && box4.innerHTML===box6.innerHTML)
         console.log("You win");
@@ -24,6 +25,38 @@
         console.log("You win");
     else if (box1.innerHTML!== "" && box1.innerHTML===box5.innerHTML && box1.innerHTML===box9.innerHTML)
         console.log("You win");
-    else if (box3.innerHTML!== "" && box3.innerHTML===box5.innerHTML && box3.innerHTML===box7.innerHTML)
+    else    (box3.innerHTML!== "" && box3.innerHTML===box5.innerHTML && box3.innerHTML===box7.innerHTML)
         console.log("You win");
+
 }
+
+$(document).ready(function() {
+    var move = 2;
+    var play = true;
+
+    $("#main").click(function() {
+        if ($(this).text()=="" && play )
+        {
+            if ((move%2)==1)
+            {
+                $(this).append("X");
+                console.log("sucessful");
+
+            }
+            else
+                {
+                    $(this).append("O");
+                }
+            move++;
+            if (getWinner() != "")
+            {
+                if (getWinner() == "X")
+                    console.log("player 1 wins");
+                else if (getWinner() == "O")
+                    console.log("player 2 wins");
+                else
+                    console.log("Draw");
+            }
+        }
+    });
+});
